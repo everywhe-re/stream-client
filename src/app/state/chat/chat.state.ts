@@ -27,7 +27,8 @@ export class ChatState {
       channel: action.channel
     });
 
-    this.firestore.collection('chat').doc(action.channel).collection('messages').stateChanges(['added'])
+    this.firestore.collection('chat').doc(action.channel).collection('messages')
+      .stateChanges(['added'])
       .subscribe((changes: DocumentChangeAction<DocumentData>[]) => {
         changes.forEach((change: DocumentChangeAction<DocumentData>) => {
           // No data
@@ -53,10 +54,6 @@ export class ChatState {
       .doc(ctx.getState().channel)
       .collection('messages')
       .add(action.message);
-
-    ctx.patchState({
-      messages: [...ctx.getState().messages, action.message]
-    });
   }
 
 }

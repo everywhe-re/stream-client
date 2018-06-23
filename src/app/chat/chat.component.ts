@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { ChatState } from '../state/chat/chat.state';
 import { AuthState } from '../state/auth/auth.state';
 import { User } from 'firebase';
-import { PostChatMessage, SelectChannel } from '../state/chat/chat.actions';
+import { PostChatMessage } from '../state/chat/chat.actions';
 
 @Component({
   selector: 'str-chat',
@@ -16,8 +16,10 @@ export class ChatComponent implements OnInit {
 
   @ViewChild('history') history: ElementRef;
 
+  showEmojiPicker: boolean;
+
   messages$: Observable<ChatMessage[]>;
-  message: string;
+  message = '';
 
 
   constructor(private store: Store) {
@@ -29,9 +31,13 @@ export class ChatComponent implements OnInit {
   }
 
 
-  setChannel(channel: string) {
-    // Select channel
-    this.store.dispatch(new SelectChannel(channel));
+  toggleEmojiPicker() {
+    this.showEmojiPicker = !this.showEmojiPicker;
+  }
+
+  addEmoji(event: any) {
+    this.showEmojiPicker = false;
+    this.message += `${event.emoji.native}`;
   }
 
 

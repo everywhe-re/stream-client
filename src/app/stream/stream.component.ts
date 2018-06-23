@@ -6,6 +6,7 @@ import { ChatComponent } from '../chat/chat.component';
 import { User } from 'firebase';
 import { Store } from '@ngxs/store';
 import { AuthState } from '../state/auth/auth.state';
+import { SelectChannel } from '../state/chat/chat.actions';
 
 @Component({
   selector: 'str-stream',
@@ -14,7 +15,7 @@ import { AuthState } from '../state/auth/auth.state';
 })
 export class StreamComponent implements OnInit, OnDestroy {
 
-  @ViewChild(ChatComponent) chat: ChatComponent;
+  @ViewChild('chat') chat: ChatComponent;
 
   user$: Observable<User>;
 
@@ -31,15 +32,15 @@ export class StreamComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    console.log('chat', this.chat);
+
     // Subscribe to route params
     this.route.params.subscribe((params: any) => {
       this.broadcaster = params['user'];
       this.source = `${environment.streamEndpoint}/${this.broadcaster}.mpd?token=abc123`;
 
       // Select chat channel
-      if (this.chat) {
-        this.chat.setChannel(this.broadcaster);
-      }
+      this.store.dispatch(new SelectChannel(this.broadcaster));
     });
   }
 

@@ -1,3 +1,7 @@
+.chat-wrapper {
+  padding: 5px;
+}
+
 .chat-history {
     max-height: 600px;
     overflow-y: auto;
@@ -20,6 +24,16 @@
     }
 }
 
+.chat-input {
+  width: 100%;
+}
+
 .chat-input input {
     margin-right: 5px;
+}
+
+.emoji-picker {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
 }

@@ -1,3 +1,4 @@
+@import "~@ctrl/ngx-emoji-mart/picker";
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700');
 
 html, body {
@@ -32,6 +33,16 @@ button, input[type=button], input[type=submit] {
   color: white;
   border: none;
   cursor: pointer;
+
+  &.small {
+    padding: 0 10px;
+    font-size: 1.2em;
+  }
+
+  &.light {
+    background: #dbdbdb;
+    color: rgb(255, 124, 42);
+  }
 
   &:disabled {
     background: linear-gradient(135deg, rgb(145, 145, 145), rgb(120, 120, 120));

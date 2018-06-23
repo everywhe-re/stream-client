@@ -5,10 +5,22 @@
       <span class="content">{{ msg.message }}</span>
     </div>
   </div>
-  <div class="chat-input">
-    <input type="text" [(ngModel)]="message">
-    <button type="button" (click)="sendMessage()">
+  <div fxLayout="row" fxFlexAlign="stretch" class="chat-input">
+    <button fxFlex="15%" class="small light" (click)="toggleEmojiPicker()">
+      <i class="far fa-smile"></i>
+    </button>
+
+    <input fxFlex="65%" type="text" [(ngModel)]="message" (keyup.enter)="sendMessage()">
+
+    <button fxFlex="20%" type="button" (click)="sendMessage()">
       <i class="fas fa-bullhorn"></i>
     </button>
+
+    <!-- Emoji picker -->
+    <emoji-mart class="emoji-picker"
+                *ngIf="showEmojiPicker"
+                title="Express your mood"
+                (emojiClick)="addEmoji($event)">
+    </emoji-mart>
   </div>
 </div>
