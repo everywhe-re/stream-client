@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    height: 50px;
+    padding: 5px 10px;
+    align-items: center;
+    background: #0f0f0f;
+}
+
+.header-right {
+  width: 100%;
+  text-align: right;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    height: 100%;
+    margin-right: 15px;
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.title {
+    display: inline-block;
+
+    background: linear-gradient(135deg, rgb(255, 124, 42), rgb(255, 163, 42));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-size: 1.4em;
+    font-weight: 700;
+    text-transform: uppercase;
+}

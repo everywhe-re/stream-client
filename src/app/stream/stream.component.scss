@@ -1,0 +1,27 @@
+.player-wrapper {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 3%;
+
+    border: solid 2px #363636;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.player-info {
+    padding: 10px 15px;
+    background: lighten(#131516, 2%);
+}
+
+.broadcaster-icon {
+    margin-right: 10px;
+}
+
+.chat {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+
+    width: 20%;
+}

@@ -1,0 +1,14 @@
+<div fxAlignSelf="flex-end" class="chat-wrapper">
+  <div #history [scrollTop]="history.scrollHeight" class="chat-history">
+    <div class="chat-message" *ngFor="let msg of messages$ | async">
+      <span class="sender">{{ msg.senderName }}</span>
+      <span class="content">{{ msg.message }}</span>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="message">
+    <button type="button" (click)="sendMessage()">
+      <i class="fas fa-bullhorn"></i>
+    </button>
+  </div>
+</div>

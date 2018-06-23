@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  streamEndpoint: 'https://stream1.everywhe.re/dash',
+  firebase: {
+    apiKey: 'AIzaSyApqJy14PdAaoauB7qDKa26LpwKpqvy8co',
+    authDomain: 'everywhe-re.firebaseapp.com',
+    databaseURL: 'https://everywhe-re.firebaseio.com',
+    projectId: 'everywhe-re',
+    storageBucket: 'everywhe-re.appspot.com',
+    messagingSenderId: '29260839840'
+  },
+  actionCodeSettings: {
+    url: 'http://localhost:4200/auth',
+    handleCodeInApp: true
+  }
 };
 
 /*

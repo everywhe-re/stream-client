@@ -1,0 +1,15 @@
+<div fxLayout="row" class="wrapper">
+    <div class="player-wrapper">
+        <str-player [source]="source"></str-player>
+        <div class="player-info">
+            <p class="light">
+                <i class="fas fa-broadcast-tower broadcaster-icon"></i>
+                <span> {{ broadcaster }}</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="chat" *ngIf="user$ | async">
+        <str-chat></str-chat>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="login-wrapper">
+  <p>Please enter your email address below to login or sign up.</p>
+
+  <!-- Email input -->
+  <input class="email-input"
+         type="email"
+         [(ngModel)]="email"
+         [readonly]="busy"
+         placeholder="Please enter your email address"
+         *ngIf="!emailSent">
+
+  <div class="actions">
+    <!-- Request login link -->
+    <button class="email-button"
+            [disabled]="busy"
+            (click)="requestLogin()">
+      Get Login Link
+    </button>
+  </div>
+
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+</div>
