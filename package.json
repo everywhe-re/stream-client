@@ -31,7 +31,7 @@
     "dashjs": "^2.7.0",
     "firebase": "^5.0.4",
     "rxjs": "^6.0.0",
-    "videogular2": "^6.2.2",
+    "shaka-player": "^2.4.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

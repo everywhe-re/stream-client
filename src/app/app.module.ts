@@ -12,11 +12,6 @@ import { StreamComponent } from './stream/stream.component';
 import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routes';
 
-import { VgCoreModule } from 'videogular2/core';
-import { VgControlsModule } from 'videogular2/controls';
-import { VgOverlayPlayModule } from 'videogular2/overlay-play';
-import { VgBufferingModule } from 'videogular2/buffering';
-import { VgStreamingModule } from 'videogular2/streaming';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
@@ -47,12 +42,7 @@ import { ChatModule } from './chat/chat.module';
     ChatModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-    VgStreamingModule
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

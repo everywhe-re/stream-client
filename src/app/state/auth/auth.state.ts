@@ -1,9 +1,10 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { ConfirmLogin, RequestLoginLink, UpdateDisplayName } from './auth.actions';
+import { ConfirmLogin, RequestLoginLink, UpdateDisplayName, UpdateUser } from './auth.actions';
 import { AuthStateModel } from './auth.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
+import { User } from 'firebase';
 
 @State<AuthStateModel>({
   name: 'auth',
@@ -90,6 +91,15 @@ export class AuthState {
     await user.updateProfile({
       displayName: action.displayName,
       photoURL: ctx.getState().user.photoURL
+    });
+  }
+
+  @Action(UpdateUser)
+  async updateUser(ctx: StateContext<AuthStateModel>) {
+    this.afAuth.user.subscribe((user: User) => {
+      ctx.patchState({
+        user: this.afAuth.auth.currentUser
+      });
     });
   }
 
