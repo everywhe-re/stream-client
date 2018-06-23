@@ -1,3 +1,5 @@
+import { User } from 'firebase';
+
 export class RequestLoginLink {
   static type = '[Auth] Request Login Link';
   constructor(public email: string) {}
@@ -16,4 +18,9 @@ export class UpdateDisplayName {
 export class UpdateUser {
   static type = '[Auth] Update User';
   constructor() {}
+}
+
+export class SetUser {
+  static type = '[Auth] Set User';
+  constructor(public user: User) {}
 }

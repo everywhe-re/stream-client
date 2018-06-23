@@ -1,5 +1,5 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { ConfirmLogin, RequestLoginLink, UpdateDisplayName, UpdateUser } from './auth.actions';
+import { ConfirmLogin, RequestLoginLink, SetUser, UpdateDisplayName, UpdateUser } from './auth.actions';
 import { AuthStateModel } from './auth.model';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
@@ -105,6 +105,13 @@ export class AuthState {
       ctx.patchState({
         user: this.afAuth.auth.currentUser
       });
+    });
+  }
+
+  @Action(SetUser)
+  async setUser(ctx: StateContext<AuthStateModel>, action: SetUser) {
+    ctx.patchState({
+      user: action.user
     });
   }
 
