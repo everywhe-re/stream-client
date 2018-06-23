@@ -40,3 +40,4 @@ Thumbs.db
 
 *-firebase-adminsdk*.json
 node_modules/
+functions/node_modules/
