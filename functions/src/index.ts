@@ -24,7 +24,7 @@ export const setupBroadcaster = functions.auth.user().onCreate(async (user) => {
   const sha = crypto.createHash('sha512').update(streamKeyData);
   const streamKey = sha.digest('hex');
 
-  await firestore.collection('broadcasters').add({
+  await firestore.collection('broadcasters').doc(user.uid).set({
     uid: user.uid,
     displayName: user.displayName,
     streamKey: streamKey,

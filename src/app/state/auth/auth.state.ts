@@ -5,11 +5,13 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { User } from 'firebase';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @State<AuthStateModel>({
   name: 'auth',
   defaults: {
     user: null,
+    broadcaster: null,
     emailForSignIn: null
   }
 })
@@ -23,6 +25,7 @@ export class AuthState {
 
 
   constructor(private afAuth: AngularFireAuth,
+              private firestore: AngularFirestore,
               private router: Router) {}
 
 
@@ -59,6 +62,8 @@ export class AuthState {
 
     // Sign in user and remove the email from localStorage
     const result = await this.afAuth.auth.signInWithEmailLink(email, url);
+
+    this.firestore.collection('broadcasters').doc(result.user.uid).valueChanges();
 
     // Update user and remove email from store and local storage
     ctx.patchState({
